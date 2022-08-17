@@ -8,13 +8,21 @@ import { Todo } from "./Todo";
 
 import "./styles.css";
 
+type TodoType = {
+  userId: number;
+  id: number;
+  title: string;
+  completed: boolean;
+};
+
 export default function App() {
-  const [todos, setTodos] = useState<any>([]);
+  const [todos, setTodos] = useState<Array<TodoType>>([]);
   const onClickFetchData = () => {
-    axios.get("https://jsonplaceholder.typicode.com/todos").then((res) => {
-      console.log(res.data);
-      setTodos(res.data);
-    });
+    axios
+      .get<Array<TodoType>>("https://jsonplaceholder.typicode.com/todos")
+      .then((res) => {
+        setTodos(res.data);
+      });
   };
   return (
     <div className="App">
@@ -25,7 +33,7 @@ export default function App() {
       <br />
       <button onClick={onClickFetchData}>データ取得</button>
       {todos.map((todo) => (
-        <Todo title={todo.title} userid={todo.userid} />
+        <Todo title={todo.title} userid={todo.userId} />
       ))}
     </div>
   );
