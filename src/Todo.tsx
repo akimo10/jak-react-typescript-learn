@@ -1,3 +1,4 @@
+import { VFC } from "react";
 import { TodoType } from "./types/todo";
 
 // type TodoType = {
@@ -9,9 +10,9 @@ import { TodoType } from "./types/todo";
 
 //Pick:共通型指定の中から、指定の型をピックアップ(ホワイトリスト)
 //Omit:共通型指定の中から、不要なものを選択し除外(ブラックリスト)
-export const Todo = (
+export const Todo: VFC<Omit<TodoType, "id">> = (
   // props: Pick<TodoType, "userId" | "title" | "completed">
-  props: Omit<TodoType, "id">
+  props
 ) => {
   const { title, userId, completed = false } = props;
   const completedMark = completed ? "[完]" : "[未]";

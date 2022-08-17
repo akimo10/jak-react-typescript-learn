@@ -6,6 +6,7 @@ import { Practice3 } from "./practices/Practice3";
 import { Practice4 } from "./practices/Practice4";
 import { Todo } from "./Todo";
 import { TodoType } from "./types/todo";
+import { Text } from "./Text";
 
 import "./styles.css";
 
@@ -20,6 +21,7 @@ export default function App() {
   };
   return (
     <div className="App">
+      <Text color={"red"} fontSize={"18px"} />
       <Practice1 />
       <Practice2 />
       <Practice3 />
