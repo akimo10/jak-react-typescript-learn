@@ -3,7 +3,7 @@
         "./src/**/*"
     ],
     "compilerOptions": {
-        "strict": true,
+        // "strict": true,
         // "noImplicitAny": false, //暗黙的Anyだけ許容する記述もできる
         "esModuleInterop": true,
         "lib": [
